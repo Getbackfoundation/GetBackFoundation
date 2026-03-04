@@ -1,0 +1,788 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Get Back Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FAF7F2;
+    --terracotta: #C4714A;
+    --terracotta-dark: #A85A36;
+    --sienna: #8B4513;
+    --sage: #7A8C6E;
+    --sage-light: #A8B89A;
+    --clay: #D4956A;
+    --bark: #5C4033;
+    --bark-light: #7A5C4A;
+    --sand: #E8D5B7;
+    --gold: #C49A3C;
+    --text-dark: #2C1810;
+    --text-mid: #5C3D2E;
+    --text-light: #8B6B5A;
+  }	∙	{ margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+font-family: ‘Lato’, sans-serif;
+background: var(–warm-white);
+color: var(–text-dark);
+overflow-x: hidden;
+}
+/* NAV */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+background: rgba(44, 24, 16, 0.96);
+backdrop-filter: blur(8px);
+display: flex; align-items: center; justify-content: space-between;
+padding: 0 5%;
+height: 72px;
+border-bottom: 2px solid var(–terracotta);
+}
+.nav-logo {
+font-family: ‘Playfair Display’, serif;
+color: var(–cream);
+font-size: 1.3rem;
+font-weight: 700;
+letter-spacing: 0.02em;
+line-height: 1.2;
+}
+.nav-logo span { color: var(–clay); font-style: italic; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+color: var(–sand);
+text-decoration: none;
+font-size: 0.85rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+font-weight: 700;
+transition: color 0.2s;
+}
+.nav-links a:hover { color: var(–clay); }
+.nav-cta {
+background: var(–terracotta);
+color: white !important;
+padding: 0.5rem 1.4rem;
+border-radius: 2px;
+}
+.nav-cta:hover { background: var(–terracotta-dark) !important; color: white !important; }
+/* HERO */
+.hero {
+min-height: 100vh;
+background: var(–bark);
+position: relative;
+display: flex; align-items: center;
+overflow: hidden;
+}
+.hero-texture {
+position: absolute; inset: 0;
+background-image:
+radial-gradient(ellipse at 70% 40%, rgba(196,113,74,0.18) 0%, transparent 60%),
+radial-gradient(ellipse at 20% 80%, rgba(122,140,110,0.12) 0%, transparent 50%),
+url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ viewBox=‘0 0 60 60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cg fill=‘none’ fill-rule=‘evenodd’%3E%3Cg fill=’%23ffffff’ fill-opacity=‘0.02’%3E%3Cpath d=‘M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z’/%3E%3C/g%3E%3C/g%3E%3C/svg%3E”);
+}
+.hero-content {
+position: relative; z-index: 2;
+max-width: 780px;
+padding: 0 5%;
+margin-top: 72px;
+animation: fadeUp 1s ease both;
+}
+.hero-eyebrow {
+font-size: 0.78rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–clay);
+font-weight: 700;
+margin-bottom: 1.2rem;
+}
+.hero h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(3rem, 7vw, 5.5rem);
+font-weight: 900;
+color: var(–cream);
+line-height: 1.05;
+margin-bottom: 1.5rem;
+}
+.hero h1 em {
+font-style: italic;
+color: var(–clay);
+}
+.hero-mission {
+font-size: 1.15rem;
+color: var(–sand);
+line-height: 1.8;
+max-width: 600px;
+margin-bottom: 2.5rem;
+font-weight: 300;
+}
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+background: var(–terracotta);
+color: white;
+padding: 1rem 2.2rem;
+font-size: 0.85rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-weight: 700;
+text-decoration: none;
+border-radius: 2px;
+transition: background 0.2s, transform 0.2s;
+display: inline-block;
+}
+.btn-primary:hover { background: var(–terracotta-dark); transform: translateY(-2px); }
+.btn-outline {
+border: 2px solid var(–sand);
+color: var(–sand);
+padding: 1rem 2.2rem;
+font-size: 0.85rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-weight: 700;
+text-decoration: none;
+border-radius: 2px;
+transition: all 0.2s;
+display: inline-block;
+}
+.btn-outline:hover { background: var(–sand); color: var(–bark); transform: translateY(-2px); }
+.hero-scroll {
+position: absolute; bottom: 2.5rem; left: 50%;
+transform: translateX(-50%);
+display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+color: var(–sand); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+animation: bounce 2s infinite;
+}
+.hero-scroll::after {
+content: ‘’; width: 1px; height: 40px;
+background: linear-gradient(to bottom, var(–clay), transparent);
+}
+/* STATS BAR */
+.stats-bar {
+background: var(–terracotta);
+padding: 2rem 5%;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 1rem;
+text-align: center;
+}
+.stat-item { padding: 0.5rem; }
+.stat-number {
+font-family: ‘Playfair Display’, serif;
+font-size: 2.5rem;
+font-weight: 900;
+color: white;
+display: block;
+line-height: 1;
+}
+.stat-label {
+font-size: 0.75rem;
+color: rgba(255,255,255,0.8);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-top: 0.3rem;
+}
+/* SECTIONS */
+section { padding: 6rem 5%; }
+.section-eyebrow {
+font-size: 0.75rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–terracotta);
+font-weight: 700;
+margin-bottom: 0.8rem;
+}
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2rem, 4vw, 3rem);
+font-weight: 700;
+color: var(–text-dark);
+line-height: 1.2;
+margin-bottom: 1.2rem;
+}
+.section-subtitle {
+font-size: 1.05rem;
+color: var(–text-light);
+line-height: 1.8;
+max-width: 560px;
+font-weight: 300;
+}
+/* ABOUT */
+#about { background: var(–cream); }
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 5rem;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+}
+.about-visual {
+position: relative;
+}
+.about-card {
+background: var(–bark);
+border-radius: 4px;
+padding: 3rem;
+position: relative;
+overflow: hidden;
+}
+.about-card::before {
+content: ‘\201C’;
+font-family: ‘Playfair Display’, serif;
+font-size: 14rem;
+color: rgba(196,113,74,0.15);
+position: absolute;
+top: -2rem; left: 1rem;
+line-height: 1;
+pointer-events: none;
+}
+.about-quote {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.25rem;
+font-style: italic;
+color: var(–cream);
+line-height: 1.7;
+position: relative; z-index: 1;
+}
+.about-quote-attr {
+margin-top: 1.5rem;
+font-size: 0.8rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–clay);
+font-weight: 700;
+}
+.about-accent {
+width: 60px; height: 4px;
+background: var(–terracotta);
+margin-bottom: 1.5rem;
+}
+.about-text p {
+color: var(–text-mid);
+line-height: 1.9;
+font-size: 1rem;
+font-weight: 300;
+margin-bottom: 1.2rem;
+}
+/* PROGRAMS */
+#programs { background: var(–warm-white); }
+.programs-inner { max-width: 1200px; margin: 0 auto; }
+.programs-header { margin-bottom: 3.5rem; }
+.programs-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1.5rem;
+}
+.program-card {
+background: var(–cream);
+border-radius: 4px;
+padding: 2.5rem;
+border-left: 4px solid var(–terracotta);
+transition: transform 0.25s, box-shadow 0.25s;
+position: relative;
+overflow: hidden;
+}
+.program-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(92,64,51,0.12); }
+.program-card:nth-child(2) { border-color: var(–sage); }
+.program-card:nth-child(3) { border-color: var(–gold); }
+.program-card:nth-child(4) { border-color: var(–bark-light); }
+.program-icon {
+font-size: 2.2rem;
+margin-bottom: 1rem;
+display: block;
+}
+.program-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.35rem;
+font-weight: 700;
+color: var(–text-dark);
+margin-bottom: 0.8rem;
+}
+.program-desc {
+color: var(–text-light);
+font-size: 0.95rem;
+line-height: 1.75;
+font-weight: 300;
+}
+/* MISSION STATEMENT */
+.mission-section {
+background: var(–bark);
+text-align: center;
+padding: 6rem 5%;
+position: relative;
+overflow: hidden;
+}
+.mission-section::before {
+content: ‘’;
+position: absolute; inset: 0;
+background: radial-gradient(ellipse at center, rgba(196,113,74,0.15) 0%, transparent 70%);
+}
+.mission-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+.mission-label {
+font-size: 0.75rem;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–clay);
+font-weight: 700;
+margin-bottom: 2rem;
+}
+.mission-text {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+font-style: italic;
+color: var(–cream);
+line-height: 1.75;
+margin-bottom: 2rem;
+}
+.mission-divider {
+width: 60px; height: 2px;
+background: var(–terracotta);
+margin: 0 auto;
+}
+/* GRANT APPLICATION SECTION */
+#grant { background: var(–cream); }
+.grant-inner {
+max-width: 1000px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1.4fr;
+gap: 5rem;
+align-items: start;
+}
+.grant-info .section-subtitle { margin-bottom: 2rem; }
+.grant-pillars { list-style: none; margin-bottom: 2rem; }
+.grant-pillars li {
+display: flex; align-items: center; gap: 0.8rem;
+padding: 0.6rem 0;
+border-bottom: 1px solid var(–sand);
+font-size: 0.9rem;
+color: var(–text-mid);
+}
+.grant-pillars li::before {
+content: ‘’;
+width: 8px; height: 8px;
+background: var(–terracotta);
+border-radius: 50%;
+flex-shrink: 0;
+}
+/* FORM */
+.grant-form {
+background: white;
+border-radius: 4px;
+padding: 2.5rem;
+box-shadow: 0 4px 30px rgba(92,64,51,0.08);
+border-top: 4px solid var(–terracotta);
+}
+.form-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.4rem;
+color: var(–text-dark);
+margin-bottom: 0.4rem;
+}
+.form-subtitle { font-size: 0.85rem; color: var(–text-light); margin-bottom: 1.8rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label {
+display: block;
+font-size: 0.75rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–text-mid);
+margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+width: 100%;
+padding: 0.75rem 1rem;
+border: 1.5px solid var(–sand);
+border-radius: 2px;
+font-family: ‘Lato’, sans-serif;
+font-size: 0.9rem;
+color: var(–text-dark);
+background: var(–warm-white);
+transition: border-color 0.2s;
+outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(–terracotta); }
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+width: 100%;
+background: var(–terracotta);
+color: white;
+border: none;
+padding: 1rem;
+font-family: ‘Lato’, sans-serif;
+font-size: 0.85rem;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+border-radius: 2px;
+cursor: pointer;
+transition: background 0.2s, transform 0.2s;
+margin-top: 0.5rem;
+}
+.form-submit:hover { background: var(–terracotta-dark); transform: translateY(-1px); }
+.form-note { font-size: 0.75rem; color: var(–text-light); text-align: center; margin-top: 0.8rem; }
+/* CONTACT */
+#contact { background: var(–warm-white); }
+.contact-inner {
+max-width: 1100px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 5rem;
+}
+.contact-info .section-subtitle { margin-bottom: 2.5rem; }
+.contact-items { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+.contact-icon {
+width: 44px; height: 44px;
+background: var(–terracotta);
+border-radius: 2px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.1rem;
+flex-shrink: 0;
+}
+.contact-item-text strong {
+display: block;
+font-size: 0.8rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–text-dark);
+margin-bottom: 0.2rem;
+}
+.contact-item-text span {
+font-size: 0.95rem;
+color: var(–text-light);
+font-weight: 300;
+}
+.contact-form-simple {
+background: var(–cream);
+padding: 2.5rem;
+border-radius: 4px;
+}
+.contact-form-simple .form-title { margin-bottom: 1.5rem; }
+/* FOOTER */
+footer {
+background: var(–text-dark);
+padding: 3rem 5% 2rem;
+}
+.footer-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr;
+gap: 3rem;
+max-width: 1200px;
+margin: 0 auto;
+padding-bottom: 2rem;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+margin-bottom: 1.5rem;
+}
+.footer-brand .nav-logo { font-size: 1.5rem; display: block; margin-bottom: 1rem; }
+.footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
+.footer-col h4 {
+font-size: 0.75rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–clay);
+font-weight: 700;
+margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.6rem; }
+.footer-col ul li a {
+color: rgba(255,255,255,0.55);
+text-decoration: none;
+font-size: 0.88rem;
+font-weight: 300;
+transition: color 0.2s;
+}
+.footer-col ul li a:hover { color: var(–clay); }
+.footer-bottom {
+max-width: 1200px; margin: 0 auto;
+display: flex; justify-content: space-between; align-items: center;
+font-size: 0.78rem; color: rgba(255,255,255,0.3);
+}
+/* ANIMATIONS */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+0%, 100% { transform: translateX(-50%) translateY(0); }
+50% { transform: translateX(-50%) translateY(-8px); }
+}
+.fade-in {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* MOBILE */
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.stats-bar { grid-template-columns: repeat(2, 1fr); }
+.about-grid, .programs-grid, .grant-inner, .contact-inner, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+.form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body><!-- NAV --><nav>
+  <div class="nav-logo">The <span>Get Back</span> Foundation</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#grant">Apply for a Grant</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Donate</a></li>
+  </ul>
+</nav><!-- HERO --><section class="hero" id="home">
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Holistic Recovery &bull; Renewed Purpose &bull; Restored Lives</p>
+    <h1>Recovery is not the end.<br>It's the <em>beginning.</em></h1>
+    <p class="hero-mission">At The Get Back Foundation, we walk alongside those reclaiming their lives — nurturing mental health, rebuilding family bonds, and unlocking career potential — so they can reclaim their rightful place in the world.</p>
+    <div class="hero-buttons">
+      <a href="#programs" class="btn-primary">Our Programs</a>
+      <a href="#grant" class="btn-outline">Apply for a Grant</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section><!-- STATS BAR --><!-- ABOUT --><section id="about">
+  <div class="about-grid fade-in">
+    <div class="about-visual">
+      <div class="about-card">
+        <p class="about-quote">"At The Get Back Foundation, we believe that recovery is not the end of a story — it's the beginning of a new one."</p>
+        <p class="about-quote-attr">— Our Mission</p>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2 class="section-title">Healing the Whole Person</h2>
+      <div class="about-accent"></div>
+      <p>The Get Back Foundation was born from a belief that every person — no matter where they've been — has the capacity to heal, grow, and fully return to life. We serve individuals in recovery from addiction with a model that doesn't just address sobriety, but restores every part of what addiction takes away.</p>
+      <p>We understand that lasting recovery requires more than willpower. It demands community, professional support, family, and purpose. That's why we've built a four-pillar model that addresses the whole human being.</p>
+      <a href="#programs" class="btn-primary" style="margin-top: 1rem;">See Our Programs</a>
+    </div>
+  </div>
+</section><!-- PROGRAMS --><section id="programs">
+  <div class="programs-inner">
+    <div class="programs-header fade-in">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Four Pillars of Renewal</h2>
+      <p class="section-subtitle">Our holistic approach addresses every dimension of recovery — because true healing leaves nothing behind.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card fade-in">
+        <span class="program-icon">🧠</span>
+        <h3 class="program-title">Mental Health Support</h3>
+        <p class="program-desc">Licensed counselors and peer support specialists provide one-on-one therapy, group sessions, and trauma-informed care to help participants heal from within. We treat the mind as the foundation of everything else.</p>
+      </div>
+      <div class="program-card fade-in">
+        <span class="program-icon">👨‍👩‍👧</span>
+        <h3 class="program-title">Family Reunification</h3>
+        <p class="program-desc">Addiction fractures families. Our family support program guides both participants and their loved ones through healing, communication, and rebuilding trust — because no one fully recovers alone.</p>
+      </div>
+      <div class="program-card fade-in">
+        <span class="program-icon">💼</span>
+        <h3 class="program-title">Job Training & Career Readiness</h3>
+        <p class="program-desc">From resume building and interview coaching to vocational training and employer partnerships, we open doors to meaningful employment — giving participants the dignity of work and financial independence.</p>
+      </div>
+      <div class="program-card fade-in">
+        <span class="program-icon">🌿</span>
+        <h3 class="program-title">Holistic Wellness</h3>
+        <p class="program-desc">Nutrition, physical health, mindfulness, and community connection form the bedrock of whole-person care. We help participants build sustainable routines that support lifelong well-being.</p>
+      </div>
+    </div>
+  </div>
+</section><!-- MISSION STATEMENT --><div class="mission-section">
+  <div class="mission-inner fade-in">
+    <p class="mission-label">Our Mission Statement</p>
+    <p class="mission-text">"Through a whole-person healing journey that nurtures mental health, rebuilds family bonds, and unlocks career potential, we walk alongside those reclaiming their lives — empowering them to rediscover their strength, their dignity, and their rightful place in the world."</p>
+    <div class="mission-divider"></div>
+  </div>
+</div><!-- GRANT APPLICATION --><section id="grant">
+  <div class="grant-inner">
+    <div class="grant-info fade-in">
+      <p class="section-eyebrow">Funding Opportunities</p>
+      <h2 class="section-title">Apply for a Grant</h2>
+      <p class="section-subtitle">We partner with foundations, corporations, and government agencies who share our belief in second chances. Submit your intent to fund or request grant information below.</p>
+      <ul class="grant-pillars">
+        <li>Mental Health Support Programs</li>
+        <li>Family Reunification Services</li>
+        <li>Vocational Training & Employment</li>
+        <li>Holistic Wellness Initiatives</li>
+        <li>General Operating Support</li>
+        <li>Capital & Facility Projects</li>
+      </ul>
+      <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.7;">The Get Back Foundation is a registered 501(c)(3) nonprofit organization. All donations and grants are tax-deductible to the fullest extent permitted by law.</p>
+    </div>
+
+<div class="grant-form fade-in">
+  <h3 class="form-title">Grant Inquiry Form</h3>
+  <p class="form-subtitle">Submit your information and we'll send you our full grant application package.</p>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="Jane"/>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="Smith"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Organization Name</label>
+    <input type="text" placeholder="Your Foundation or Company"/>
+  </div>
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" placeholder="jane@example.org"/>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="(555) 000-0000"/>
+    </div>
+    <div class="form-group">
+      <label>Grant Amount Range</label>
+      <select>
+        <option>Select range...</option>
+        <option>Under $10,000</option>
+        <option>$10,000 – $50,000</option>
+        <option>$50,000 – $100,000</option>
+        <option>$100,000+</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Area of Interest</label>
+    <select>
+      <option>Select program area...</option>
+      <option>Mental Health Support</option>
+      <option>Family Reunification</option>
+      <option>Job Training & Career Readiness</option>
+      <option>Holistic Wellness</option>
+      <option>General Operating Support</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Tell Us About Your Funding Goals</label>
+    <textarea placeholder="Briefly describe your organization's mission and why you're interested in supporting The Get Back Foundation..."></textarea>
+  </div>
+  <button class="form-submit" onclick="alert('Thank you! We will be in touch shortly with our grant application package.')">Submit Grant Inquiry</button>
+  <p class="form-note">We respond to all inquiries within 3–5 business days.</p>
+</div>
+
+
+</div>
+</section><!-- CONTACT --><section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info fade-in">
+      <p class="section-eyebrow">Get In Touch</p>
+      <h2 class="section-title">We'd Love to Hear From You</h2>
+      <p class="section-subtitle">Whether you're a person seeking support, a donor, a partner organization, or a community member — our door is always open.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Address</strong>
+            <span>34 Braeburn Rd, Havertown, PA 19083</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>Phone</strong>
+            <span>610-304-0297</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <span>Amy.Pipitone@getbackfoundation.com</span>
+          </div>
+        </div>
+
+  </div>
+</div>
+
+<div class="contact-form-simple fade-in">
+  <h3 class="form-title">Send a Message</h3>
+  <div class="form-row">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" placeholder="Jane"/>
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" placeholder="Smith"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" placeholder="jane@email.com"/>
+  </div>
+  <div class="form-group">
+    <label>Subject</label>
+    <select>
+      <option>I'm seeking services</option>
+      <option>I'd like to donate</option>
+      <option>Grant / Partnership inquiry</option>
+      <option>Volunteer opportunities</option>
+      <option>General question</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Message</label>
+    <textarea placeholder="How can we help you?"></textarea>
+  </div>
+  <button class="form-submit" onclick="alert('Thank you for your message! We\'ll be in touch soon.')">Send Message</button>
+</div>
+
+
+</div>
+</section><!-- FOOTER --><footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">The <span>Get Back</span> Foundation</span>
+      <p>Walking alongside those reclaiming their lives through holistic healing — nurturing mental health, rebuilding family bonds, and unlocking career potential.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#programs">Our Programs</a></li>
+        <li><a href="#grant">Grant Application</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Donate</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#programs">Mental Health</a></li>
+        <li><a href="#programs">Family Support</a></li>
+        <li><a href="#programs">Job Training</a></li>
+        <li><a href="#programs">Holistic Wellness</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 The Get Back Foundation. All rights reserved.</span>
+    <span>501(c)(3) Nonprofit Organization</span>
+  </div>
+</footer><script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</scrip
+t></body>
+</html>
