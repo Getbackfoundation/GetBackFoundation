@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,14 +23,19 @@
     --text-dark: #2C1810;
     --text-mid: #5C3D2E;
     --text-light: #8B6B5A;
-  }	∙	{ margin: 0; padding: 0; box-sizing: border-box; }
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
 font-family: ‘Lato’, sans-serif;
 background: var(–warm-white);
 color: var(–text-dark);
 overflow-x: hidden;
 }
+
 /* NAV */
 nav {
 position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -66,6 +73,7 @@ padding: 0.5rem 1.4rem;
 border-radius: 2px;
 }
 .nav-cta:hover { background: var(–terracotta-dark) !important; color: white !important; }
+
 /* HERO */
 .hero {
 min-height: 100vh;
@@ -145,6 +153,7 @@ transition: all 0.2s;
 display: inline-block;
 }
 .btn-outline:hover { background: var(–sand); color: var(–bark); transform: translateY(-2px); }
+
 .hero-scroll {
 position: absolute; bottom: 2.5rem; left: 50%;
 transform: translateX(-50%);
@@ -156,6 +165,7 @@ animation: bounce 2s infinite;
 content: ‘’; width: 1px; height: 40px;
 background: linear-gradient(to bottom, var(–clay), transparent);
 }
+
 /* STATS BAR */
 .stats-bar {
 background: var(–terracotta);
@@ -181,8 +191,10 @@ letter-spacing: 0.1em;
 text-transform: uppercase;
 margin-top: 0.3rem;
 }
+
 /* SECTIONS */
 section { padding: 6rem 5%; }
+
 .section-eyebrow {
 font-size: 0.75rem;
 letter-spacing: 0.22em;
@@ -206,6 +218,7 @@ line-height: 1.8;
 max-width: 560px;
 font-weight: 300;
 }
+
 /* ABOUT */
 #about { background: var(–cream); }
 .about-grid {
@@ -264,6 +277,7 @@ font-size: 1rem;
 font-weight: 300;
 margin-bottom: 1.2rem;
 }
+
 /* PROGRAMS */
 #programs { background: var(–warm-white); }
 .programs-inner { max-width: 1200px; margin: 0 auto; }
@@ -304,6 +318,7 @@ font-size: 0.95rem;
 line-height: 1.75;
 font-weight: 300;
 }
+
 /* MISSION STATEMENT */
 .mission-section {
 background: var(–bark);
@@ -339,6 +354,7 @@ width: 60px; height: 2px;
 background: var(–terracotta);
 margin: 0 auto;
 }
+
 /* GRANT APPLICATION SECTION */
 #grant { background: var(–cream); }
 .grant-inner {
@@ -365,6 +381,7 @@ background: var(–terracotta);
 border-radius: 50%;
 flex-shrink: 0;
 }
+
 /* FORM */
 .grant-form {
 background: white;
@@ -427,6 +444,7 @@ margin-top: 0.5rem;
 }
 .form-submit:hover { background: var(–terracotta-dark); transform: translateY(-1px); }
 .form-note { font-size: 0.75rem; color: var(–text-light); text-align: center; margin-top: 0.8rem; }
+
 /* CONTACT */
 #contact { background: var(–warm-white); }
 .contact-inner {
@@ -466,6 +484,7 @@ padding: 2.5rem;
 border-radius: 4px;
 }
 .contact-form-simple .form-title { margin-bottom: 1.5rem; }
+
 /* FOOTER */
 footer {
 background: var(–text-dark);
@@ -506,6 +525,7 @@ max-width: 1200px; margin: 0 auto;
 display: flex; justify-content: space-between; align-items: center;
 font-size: 0.78rem; color: rgba(255,255,255,0.3);
 }
+
 /* ANIMATIONS */
 @keyframes fadeUp {
 from { opacity: 0; transform: translateY(30px); }
@@ -521,6 +541,7 @@ transform: translateY(24px);
 transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
+
 /* MOBILE */
 @media (max-width: 768px) {
 .nav-links { display: none; }
@@ -529,8 +550,13 @@ transition: opacity 0.7s ease, transform 0.7s ease;
 .form-row { grid-template-columns: 1fr; }
 }
 </style>
+
 </head>
-<body><!-- NAV --><nav>
+<body>
+
+<!-- NAV -->
+
+<nav>
   <div class="nav-logo">The <span>Get Back</span> Foundation</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -539,7 +565,11 @@ transition: opacity 0.7s ease, transform 0.7s ease;
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contact" class="nav-cta">Donate</a></li>
   </ul>
-</nav><!-- HERO --><section class="hero" id="home">
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
   <div class="hero-texture"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Holistic Recovery &bull; Renewed Purpose &bull; Restored Lives</p>
@@ -551,7 +581,13 @@ transition: opacity 0.7s ease, transform 0.7s ease;
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
-</section><!-- STATS BAR --><!-- ABOUT --><section id="about">
+</section>
+
+<!-- STATS BAR -->
+
+<!-- ABOUT -->
+
+<section id="about">
   <div class="about-grid fade-in">
     <div class="about-visual">
       <div class="about-card">
@@ -568,7 +604,11 @@ transition: opacity 0.7s ease, transform 0.7s ease;
       <a href="#programs" class="btn-primary" style="margin-top: 1rem;">See Our Programs</a>
     </div>
   </div>
-</section><!-- PROGRAMS --><section id="programs">
+</section>
+
+<!-- PROGRAMS -->
+
+<section id="programs">
   <div class="programs-inner">
     <div class="programs-header fade-in">
       <p class="section-eyebrow">What We Do</p>
@@ -598,13 +638,21 @@ transition: opacity 0.7s ease, transform 0.7s ease;
       </div>
     </div>
   </div>
-</section><!-- MISSION STATEMENT --><div class="mission-section">
+</section>
+
+<!-- MISSION STATEMENT -->
+
+<div class="mission-section">
   <div class="mission-inner fade-in">
     <p class="mission-label">Our Mission Statement</p>
     <p class="mission-text">"Through a whole-person healing journey that nurtures mental health, rebuilds family bonds, and unlocks career potential, we walk alongside those reclaiming their lives — empowering them to rediscover their strength, their dignity, and their rightful place in the world."</p>
     <div class="mission-divider"></div>
   </div>
-</div><!-- GRANT APPLICATION --><section id="grant">
+</div>
+
+<!-- GRANT APPLICATION -->
+
+<section id="grant">
   <div class="grant-inner">
     <div class="grant-info fade-in">
       <p class="section-eyebrow">Funding Opportunities</p>
@@ -621,6 +669,7 @@ transition: opacity 0.7s ease, transform 0.7s ease;
       <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.7;">The Get Back Foundation is a registered 501(c)(3) nonprofit organization. All donations and grants are tax-deductible to the fullest extent permitted by law.</p>
     </div>
 
+```
 <div class="grant-form fade-in">
   <h3 class="form-title">Grant Inquiry Form</h3>
   <p class="form-subtitle">Submit your information and we'll send you our full grant application package.</p>
@@ -677,10 +726,14 @@ transition: opacity 0.7s ease, transform 0.7s ease;
   <button class="form-submit" onclick="alert('Thank you! We will be in touch shortly with our grant application package.')">Submit Grant Inquiry</button>
   <p class="form-note">We respond to all inquiries within 3–5 business days.</p>
 </div>
+```
 
+  </div>
+</section>
 
-</div>
-</section><!-- CONTACT --><section id="contact">
+<!-- CONTACT -->
+
+<section id="contact">
   <div class="contact-inner">
     <div class="contact-info fade-in">
       <p class="section-eyebrow">Get In Touch</p>
@@ -709,6 +762,7 @@ transition: opacity 0.7s ease, transform 0.7s ease;
           </div>
         </div>
 
+```
   </div>
 </div>
 
@@ -744,10 +798,14 @@ transition: opacity 0.7s ease, transform 0.7s ease;
   </div>
   <button class="form-submit" onclick="alert('Thank you for your message! We\'ll be in touch soon.')">Send Message</button>
 </div>
+```
 
+  </div>
+</section>
 
-</div>
-</section><!-- FOOTER --><footer>
+<!-- FOOTER -->
+
+<footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="nav-logo">The <span>Get Back</span> Foundation</span>
@@ -777,12 +835,15 @@ transition: opacity 0.7s ease, transform 0.7s ease;
     <span>&copy; 2026 The Get Back Foundation. All rights reserved.</span>
     <span>501(c)(3) Nonprofit Organization</span>
   </div>
-</footer><script>
+</footer>
+
+<script>
   // Scroll fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</scrip
-t></body>
+</script>
+
+</body>
 </html>
